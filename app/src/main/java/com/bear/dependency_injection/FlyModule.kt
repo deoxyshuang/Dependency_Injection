@@ -7,7 +7,8 @@ import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
-class FlyModule {
+class FlyModule(private val sno: String,private val name: String) {
+
     @Singleton
     @Provides
     @Named("Canary")
@@ -16,7 +17,15 @@ class FlyModule {
     @Provides
     //@Named("Bumblebee")
     @Bee
-    fun providesBumblebee(): Fly = Bumblebee()
+    fun providesBumblebee(@Named("sno") sno: String,@Named("name") name: String): Fly = Bumblebee(sno,name)
+
+    @Provides
+    @Named("sno")
+    fun providesSno() = sno
+
+    @Provides
+    @Named("name")
+    fun providesName() = name
 
     // 自定義annotation
     @Qualifier

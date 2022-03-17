@@ -18,7 +18,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        DaggerNaturalComponent.create().inject(this)
+//        DaggerNaturalComponent.create().inject(this)
+        DaggerNaturalComponent.builder().flyModule(FlyModule("A005","buzz")).build().inject(this)
         forest.exist()
     }
 }

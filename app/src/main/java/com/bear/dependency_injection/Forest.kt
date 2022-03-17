@@ -30,6 +30,6 @@ class Forest @Inject constructor() {
         Log.d(TAG, "canary1=${canary1}")
         Log.d(TAG, "canary2=${canary2}")
         bee.fly()
-        hummingbird.showHabitat()
+        hummingbird.peck()
     }
 }
